@@ -29,6 +29,7 @@
     <label for="url" class="col-sm-3 control-label">Choose an application</label>
       <div class="col-sm-9">
         <select name="app" id="app">
+          <option value="">Choose an application</option>
             {% for app in applications %}
             <option name="app_name" id="app_name" value="{{app.id}}">{{app.nom}}</option>
             {% endfor %}

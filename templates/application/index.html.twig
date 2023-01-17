@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>{% include 'assets/css/style.css' %}</style>
+
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Application <b>Details</b></h2></div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='{{ path('add_application_form') }}'> Add New App</a></button>
+                        <button type="button" class="btn btn-info add-new"><a href='{{ path('app_client') }}'> see Clients</a></button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Url</th>
+                        <th>Actions</th>
+                        
+                    </tr>
+                </thead>
+               
+                <tbody>
+                 {% for app in applications %}
+                    <tr>
+                        <td>{{app.Id}}</td>
+                        <td>{{app.nom}}</td>
+                        <td>{{app.Url}}</td>
+                      
+                        <td>
+                            <a href='{{ path('update_application_form', {'id': app.Id }) }}' class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href='{{ path('delete_application', {'id': app.Id}) }}' class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                           
+                        </td>
+                    </tr>
+                   {% endfor %}
+                           
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>    
+{% endblock %}

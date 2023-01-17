@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<style>{% include 'assets/css/style.css' %}</style>
+
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Clients <b>Details</b></h2></div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='{{ path('add_client_form') }}'> Add New Client</a></button>
+                        <button type="button" class="btn btn-info add-new"><a href='{{ path('app_application') }}'> see apps</a></button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Actions</th>
+                        
+                    </tr>
+                </thead>
+               
+                <tbody>
+                 {% for client in clients %}
+                    <tr>
+                        <td>{{client.Id}}</td>
+                        <td>{{client.nom}}</td>
+                        <td>{{client.prenom}}</td>
+                        
+                        
+                        <td>
+                            <a href='{{ path('update_client_form', {'id': client.Id }) }}' class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href='{{ path('delete_client', {'id': client.Id}) }}' class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                           
+                        </td>
+                    </tr>
+                   {% endfor %}
+                           
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    
+{% endblock %}

@@ -11,7 +11,6 @@
                     <div class="col-sm-8"><h2>Application <b>Details</b></h2></div>
                     <div class="col-sm-4">
                         <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i><a href='{{ path('add_application_form') }}'> Add New App</a></button>
-                        <button type="button" class="btn btn-info add-new"><a href='{{ path('app_client') }}'> see Clients</a></button>
                     </div>
                 </div>
             </div>
@@ -31,7 +30,7 @@
                     <tr>
                         <td>{{app.Id}}</td>
                         <td>{{app.nom}}</td>
-                        <td>{{app.Url}}</td>
+                        <td><a href="{{app.Url}}">{{app.Url}}</a></td>
                       
                         <td>
                             <a href='{{ path('update_application_form', {'id': app.Id }) }}' class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

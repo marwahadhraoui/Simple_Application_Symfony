@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div style="padding:25px">
+<section class="article">
+<a href="{{path('new_article')}}" class="btn btn-primary" style="float:right"> Create new article</a>
+{% for article in articles %}
+<article>
+
+    <h2>{{article.title}}</h2>
+        <div class="metadata">Written on {{article.createdAt | date('d/m/Y')}} à {{article.createdAt | date('H:i')}} in the political category </div>
+
+        <img  src="{{article.image}}" alt="Card image cap" >
+        
+        <p>{{article.content}}</p>
+        <a href="{{path('article_show',{'id': article.id})}}" class="btn btn-primary"> Read More</a>
+</article>
+{% endfor %}
+
+</div>
+<div class="center">
+    <ul class="pagination" >
+    {% for item in 1..((total/limit) | round(0,'ceil'))%}
+        <li>
+            <a href="?page={{item}}" >{{item}}</a>
+        </li>
+           
+    {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

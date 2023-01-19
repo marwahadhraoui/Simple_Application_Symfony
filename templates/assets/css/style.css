@@ -1,5 +1,5 @@
 body {
-    color: #404E67;
+   
     background: #F5F7FA;
     font-family: 'Open Sans', sans-serif;
 }
@@ -85,3 +85,26 @@ table.table td .add {
 a{
     color: black;
 }
+
+
+  
+  .pagination a {
+    color: black;   
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #1e2d4d;
+    color: white;
+    margin-left: 10px;  
+  }
+
+
+
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+ 

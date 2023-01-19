@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+        <div style="padding:25px">
+
+    {% if editMode %}
+    <h1>Update The Article!</h1>
+    {% else %}
+    <h1>Create a new Article !</h1>
+    {% endif %}
+
+
+    {{form_start(form_article)}}
+
+    {{ form_row(form_article.title , {'attr':{'placeholder':"Title of the article"} } ) }}
+    {{ form_row(form_article.content, {'attr':{'placeholder':"Content of the article"}} )}}
+    {{ form_row(form_article.image,{'attr':{'placeholder':"URL of the image"}}) }}
+
+        <button type="submit" class="btn btn-primary">
+            {% if editMode %}
+                Update article
+            {% else %}
+                Create new Article
+            {% endif %}
+        </button>
+
+    {{ form_end(form_article) }}
+
+
+</div>
+{% endblock %}
